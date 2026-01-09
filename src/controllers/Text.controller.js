@@ -36,3 +36,22 @@ export const textclassify=async (req,res)=>{
         
     }
 } 
+//get all ai
+export const getalltext=async(req,res)=>{
+    try {
+        const text=await TextModel.find();
+        res.status(200).json({
+            success:true,
+            data:text
+        })
+    } catch (error) {
+        console.log("error to get all text",error); 
+        res.status(500).json({
+            success:false,
+            error:error.message
+        })
+
+        
+        
+    }
+}
